@@ -98,6 +98,23 @@ const container = document.querySelector("#library-container");
                 // Adds the delete button to the book panel.
                 panel.append(deleteButton);
 
+        // Creates a read status button and sets it to button.
+        const readStatusButton = document.createElement("button");
+                // Adds text to the read status button.
+                readStatusButton.textContent = "Change";
+                    // Adds an event listener so when the button is clicked changes read to not read and vice versa.
+                    readStatusButton.addEventListener("click", (event) =>{
+                        if (book.read === true) {
+                            book.read = false;
+                        } else {
+                            book.read = true;
+                        }
+
+                        renderBooks();
+                    });
+                    // Adds read status button to book panel.
+                    panel.append(readStatusButton);
+
         // Drops the completed book panel in the main container.
         container.append(panel);
     }
